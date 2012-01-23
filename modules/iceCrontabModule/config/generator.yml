@@ -1,0 +1,38 @@
+generator:
+  class: IcePropelSecurityGenerator
+  param:
+    model_class:           iceModelCrontab
+    theme:                 bootstrap
+    non_verbose_templates: true
+    with_show:             false
+    singular:              iceModelCrontab
+    plural:                crontabs
+    route_prefix:          ice_crontab
+    with_propel_route:     1
+    actions_base_class:    IceBackendActions
+
+    use_security_yaml_credentials: false
+
+    config:
+      actions: ~
+      fields:
+        id: { label: ID }
+        day_of_week: { label: Day of Week }
+        day_of_month: { label: Day of Month }
+        function_name: { label: Function }
+        is_active: { label: "Active?"}
+      list:
+        title: Crontab
+        hide: [description, updated_at, created_at]
+        object_actions:
+          run:
+            label: Run
+            action: run
+          _edit: ~
+          _delete: ~
+      filter:
+        class: false
+      form:
+        display: [context, minute, hour, month, day_of_week, day_of_month, function_name, parameters, description, priority, is_active]
+      edit:    ~
+      new:     ~

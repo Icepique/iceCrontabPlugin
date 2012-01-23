@@ -1,0 +1,8 @@
+ice_crontab:
+  class: sfPropelRouteCollection
+  options:
+    model:        iceModelCrontab
+    module:       iceCrontabModule
+    prefix_path:  /crontab
+    column:       id
+    with_wildcard_routes: true
